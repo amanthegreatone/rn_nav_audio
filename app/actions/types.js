@@ -1,0 +1,3 @@
+export const SET_USER_PROFILE = 'LOAD_USER_PROFILE';
+export const SET_USER_LOGIN = 'SET_USER_LOGIN';
+export const SET_LOGGED_IN = 'SET_LOGGED_IN';
