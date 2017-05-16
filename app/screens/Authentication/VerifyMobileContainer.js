@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -16,7 +16,7 @@ import {
 import { connect } from 'react-redux';
 import * as userProfileActions from '../../actions/userProfile';
 
-class VerifyMobile extends Component {
+class VerifyMobileContainer extends Component {
 
   static navigationOptions = {
     title: 'VerifyMobile',
@@ -30,6 +30,7 @@ class VerifyMobile extends Component {
     };
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" translucent />
         <Text style={styles.welcome}>
           VerifyMobile
         </Text>
@@ -61,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(VerifyMobile);
+export default connect()(VerifyMobileContainer);

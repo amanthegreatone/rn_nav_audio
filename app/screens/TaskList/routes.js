@@ -3,37 +3,36 @@ import { Text, Button } from 'react-native';
 
 import { TabNavigator, TabBarTop } from 'react-navigation';
 
-import OpenTasks from './OpenTasks';
-import ClosedTasks from './ClosedTasks';
-import CompletedTasks from './CompletedTasks';
-import CancelledTasks from './CancelledTasks';
+import OpenTasksContainer from './OpenTasksContainer';
+import ClosedTasksContainer from './ClosedTasksContainer';
+import CompletedTasksContainer from './CompletedTasksContainer';
+import CancelledTasksContainer from './CancelledTasksContainer';
 
+import { baseNavigationOptions } from '../navigationOptions';
 
 const taskListNavigationOptions = ({ navigation }) => ({
   headerTitle: 'Tasks',
-  headerLeft: <Button onPress={() => navigation.navigate('DrawerOpen')} title="Menu" />,
+  headerLeft: <Button transparent color="white" onPress={() => navigation.navigate('DrawerOpen')} title="Menu" />,
   drawerLabel: 'Tasks',
   drawerIcon: ({ tintColor }) => <Text style={{ color: tintColor }}>IC</Text>,
-  headerStyle: {
-    backgroundColor: 'red',
-  },
+  ...baseNavigationOptions,
 });
 
 const taskListStackRoutes = {
   OpenTasks: {
-    screen: OpenTasks,
+    screen: OpenTasksContainer,
     navigationOptions: taskListNavigationOptions,
   },
   CompletedTasks: {
-    screen: CompletedTasks,
+    screen: CompletedTasksContainer,
     navigationOptions: taskListNavigationOptions,
   },
   CancelledTasks: {
-    screen: CancelledTasks,
+    screen: CancelledTasksContainer,
     navigationOptions: taskListNavigationOptions,
   },
   ClosedTasks: {
-    screen: ClosedTasks,
+    screen: ClosedTasksContainer,
     navigationOptions: taskListNavigationOptions,
   },
 };
@@ -59,7 +58,7 @@ const taskListStackOptions = {
       marginVertical: 4,
     },
     style: {
-      backgroundColor: 'blue',
+      backgroundColor: '#0c55ac',
     },
   },
 };

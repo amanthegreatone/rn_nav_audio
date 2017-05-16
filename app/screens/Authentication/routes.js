@@ -4,17 +4,25 @@
 import { StackNavigator } from 'react-navigation';
 
 import Splashscreen from './Splashscreen';
-import VerifyMobile from './VerifyMobile';
-import Login from './Login';
+import VerifyMobileContainer from './VerifyMobileContainer';
+import LoginContainer from './LoginContainer';
 
-const rootStackRoutes = {
+import { baseNavigationOptions } from '../navigationOptions';
+
+const authStackRoutes = {
   Splashscreen: { screen: Splashscreen },
-  VerifyMobile: { screen: VerifyMobile },
-  Login: { screen: Login },
+  VerifyMobile: {
+    screen: VerifyMobileContainer,
+    navigationOptions: baseNavigationOptions,
+  },
+  Login: {
+    screen: LoginContainer,
+    navigationOptions: baseNavigationOptions,
+  },
 };
 
-const rootStackOptions = {
+const authStackOptions = {
   initialRouteName: 'Splashscreen',
 };
 
-export const AuthenticationNavigator = StackNavigator(rootStackRoutes, rootStackOptions);
+export const AuthenticationNavigator = StackNavigator(authStackRoutes, authStackOptions);

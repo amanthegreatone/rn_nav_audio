@@ -6,37 +6,34 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View,
-  Button,
-  TouchableOpacity
+  Button
 } from 'react-native';
 
 import { connect } from 'react-redux';
 import * as userProfileActions from '../../actions/userProfile';
 
-class Dashboard extends Component {
+class UserProfileContainer extends Component {
 
   static navigationOptions = ({ navigation}) => ({
-    headerTitle: 'Dashboard',
-    headerLeft: <Button onPress={() => navigation.navigate('DrawerOpen')} title="Menu" />,
-    drawerLabel: 'Dashboard',
+    headerTitle: 'Profile',
+    headerLeft: <Button transparent color="white" onPress={() => navigation.navigate('DrawerOpen')} title="Menu" />,
+    drawerLabel: 'Profile',
     drawerIcon: ({tintColor}) => <Text style={{color: tintColor}}>IC</Text>
   });
 
   render() {
     console.log(this.props);
-    const userLogin = null;
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" translucent />
         <Text style={styles.welcome}>
-          Dashboard
+          UserProfile
         </Text>
-        <Button onPress={() => this.props.dispatch(userProfileActions.resetAccessToken())} title="Reset Login"/>
-        <Button onPress={() => this.props.navigation.navigate('Tasks')} title="Tasks"/>
-        {/* <Button onPress={() => this.props.navigation.navigate('Leads')} title="Leads"/> */}
+        {/* <Button onPress={() => this.props.dispatch(userProfileActions.setUserLogin(userLogin))} title="Login"/> */}
       </View>
     );
   }
@@ -61,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Dashboard);
+export default connect()(UserProfileContainer);

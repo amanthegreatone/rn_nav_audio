@@ -16,10 +16,10 @@ import {
 import { connect } from 'react-redux';
 // import * as userProfileActions from '../actions/userProfile';
 
-class CancelledTasks extends Component {
+class TaskRevenueContainer extends Component {
 
   static navigationOptions = {
-    tabBarLabel: 'Cancelled',
+    tabBarLabel: 'Revenue',
   };
 
   render() {
@@ -27,9 +27,9 @@ class CancelledTasks extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Cancelled Tasks
+          Task Revenue
         </Text>
-        <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/>
+        {/* <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/> */}
       </View>
     );
   }
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(CancelledTasks);
+export default connect()(TaskRevenueContainer);

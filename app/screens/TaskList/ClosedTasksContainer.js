@@ -14,12 +14,12 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import * as userProfileActions from '../actions/userProfile';
+// import * as userProfileActions from '../actions/userProfile';
 
-class ImageView extends Component {
+class ClosedTasksContainer extends Component {
 
   static navigationOptions = {
-    tabBarLabel: 'ImageView',
+    tabBarLabel: 'Closed',
   };
 
   render() {
@@ -27,9 +27,9 @@ class ImageView extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Image View
+          Closed Tasks
         </Text>
-        {/* <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/> */}
+        <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/>
       </View>
     );
   }
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(ImageView);
+export default connect()(ClosedTasksContainer);

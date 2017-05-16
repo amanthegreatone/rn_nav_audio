@@ -6,32 +6,31 @@
 
 import React, { Component } from 'react';
 import {
-  // AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View,
-  // Button,
-  // ListView
+  Button
 } from 'react-native';
 
-import { DrawerItems } from 'react-navigation';
-
 import { connect } from 'react-redux';
-// import * as userProfileActions from '../../actions/userProfile';
+// import * as userProfileActions from '../actions/userProfile';
 
-// import { MyDrawerNavigator } from './routes';
+class TaskContainer extends Component {
 
-class Drawer extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'Task',
+  };
 
   render() {
     console.log(this.props);
     return (
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={{ height: 150, paddingTop: 24, backgroundColor: '#f54f53', justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Username</Text>
-          <Text>Tenant</Text>
-        </View>
-        <DrawerItems {...this.props} />
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" translucent />
+        <Text style={styles.welcome}>
+          Task
+        </Text>
+        {/* <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/> */}
       </View>
     );
   }
@@ -56,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Drawer);
+export default connect()(TaskContainer);

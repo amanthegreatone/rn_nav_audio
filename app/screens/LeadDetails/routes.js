@@ -3,39 +3,39 @@ import { Text } from 'react-native';
 
 import { TabNavigator, TabBarTop } from 'react-navigation';
 
-import TaskContainer from './TaskContainer';
-import TaskRevenueContainer from './TaskRevenueContainer';
+import LeadContainer from './LeadContainer';
+import FollowupContainer from './FollowupContainer';
 import CommentsContainer from '../CommentsContainer';
 import AttachmentsContainer from '../AttachmentsContainer';
 
 import { baseNavigationOptions } from '../navigationOptions';
 
-const taskDetailsNavigationOptions = {
-  headerTitle: 'Task Details',
+const leadDetailsNavigationOptions = {
+  headerTitle: 'Lead Details',
   drawerIcon: ({ tintColor }) => <Text style={{ color: tintColor }}>IC</Text>,
   ...baseNavigationOptions
 };
 
-const taskDetailsStackRoutes = {
-  Task: {
-    screen: TaskContainer,
-    navigationOptions: taskDetailsNavigationOptions,
+const leadDetailsStackRoutes = {
+  Lead: {
+    screen: LeadContainer,
+    navigationOptions: leadDetailsNavigationOptions,
   },
-  TaskRevenue: {
-    screen: TaskRevenueContainer,
-    navigationOptions: taskDetailsNavigationOptions,
+  Followup: {
+    screen: FollowupContainer,
+    navigationOptions: leadDetailsNavigationOptions,
   },
   Comments: {
     screen: CommentsContainer,
-    navigationOptions: taskDetailsNavigationOptions,
+    navigationOptions: leadDetailsNavigationOptions,
   },
   Attachments: {
     screen: AttachmentsContainer,
-    navigationOptions: taskDetailsNavigationOptions,
+    navigationOptions: leadDetailsNavigationOptions,
   },
 };
 
-const taskDetailsStackOptions = {
+const leadDetailsStackOptions = {
   tabBarComponent: TabBarTop,
   tabBarPosition: 'top',
   swipeEnabled: true,
@@ -61,4 +61,4 @@ const taskDetailsStackOptions = {
   },
 };
 
-export const TaskDetailsTabNavigator = TabNavigator(taskDetailsStackRoutes, taskDetailsStackOptions);
+export const LeadDetailsTabNavigator = TabNavigator(leadDetailsStackRoutes, leadDetailsStackOptions);

@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -16,20 +16,21 @@ import {
 import { connect } from 'react-redux';
 // import * as userProfileActions from '../actions/userProfile';
 
-class TaskDetails extends Component {
+class LeadContainer extends Component {
 
   static navigationOptions = {
-    title: 'Task Details',
+    tabBarLabel: 'Lead',
   };
 
   render() {
     console.log(this.props);
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" translucent />
         <Text style={styles.welcome}>
-          Task Details
+          Lead
         </Text>
-        {/* <Button onPress={() => this.props.dispatch(userProfileActions.setUserLogin(userLogin))} title="Login"/> */}
+        {/* <Button onPress={() => this.props.navigation.navigate('LeadDetails')} title="Lead Details"/> */}
       </View>
     );
   }
@@ -54,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(TaskDetails);
+export default connect()(LeadContainer);

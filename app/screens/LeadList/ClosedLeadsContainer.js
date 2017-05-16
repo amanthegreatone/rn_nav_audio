@@ -14,25 +14,22 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import * as userProfileActions from '../../actions/userProfile';
+// import * as userProfileActions from '../actions/userProfile';
 
-class UserProfile extends Component {
+class ClosedLeadsContainer extends Component {
 
-  static navigationOptions = ({ navigation}) => ({
-    headerTitle: 'Profile',
-    headerLeft: <Button onPress={() => navigation.navigate('DrawerOpen')} title="Menu" />,
-    drawerLabel: 'Profile',
-    drawerIcon: ({tintColor}) => <Text style={{color: tintColor}}>IC</Text>
-  });
+  static navigationOptions = {
+    tabBarLabel: 'Closed',
+  };
 
   render() {
     console.log(this.props);
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          UserProfile
+          Closed Leads
         </Text>
-        {/* <Button onPress={() => this.props.dispatch(userProfileActions.setUserLogin(userLogin))} title="Login"/> */}
+        <Button onPress={() => this.props.navigation.navigate('LeadDetails')} title="Lead Details"/>
       </View>
     );
   }
@@ -57,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(UserProfile);
+export default connect()(ClosedLeadsContainer);

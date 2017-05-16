@@ -6,32 +6,30 @@
 
 import React, { Component } from 'react';
 import {
-  // AppRegistry,
+  AppRegistry,
   StyleSheet,
   Text,
   View,
-  // Button,
-  // ListView
+  Button
 } from 'react-native';
 
-import { DrawerItems } from 'react-navigation';
-
 import { connect } from 'react-redux';
-// import * as userProfileActions from '../../actions/userProfile';
+// import * as userProfileActions from '../actions/userProfile';
 
-// import { MyDrawerNavigator } from './routes';
+class CompletedTasksContainer extends Component {
 
-class Drawer extends Component {
+  static navigationOptions = {
+    tabBarLabel: 'Completed',
+  };
 
   render() {
     console.log(this.props);
     return (
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={{ height: 150, paddingTop: 24, backgroundColor: '#f54f53', justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Username</Text>
-          <Text>Tenant</Text>
-        </View>
-        <DrawerItems {...this.props} />
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Completed Tasks
+        </Text>
+        <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/>
       </View>
     );
   }
@@ -56,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Drawer);
+export default connect()(CompletedTasksContainer);

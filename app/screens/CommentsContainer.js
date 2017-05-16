@@ -16,10 +16,10 @@ import {
 import { connect } from 'react-redux';
 import * as userProfileActions from '../actions/userProfile';
 
-class LeadDetails extends Component {
+class CommentsContainer extends Component {
 
   static navigationOptions = {
-    title: 'Lead Details',
+    tabBarLabel: 'Comments',
   };
 
   render() {
@@ -27,9 +27,9 @@ class LeadDetails extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Lead Details
+          Comments
         </Text>
-        <Button onPress={() => this.props.dispatch(userProfileActions.setUserLogin(null))} title="Login"/>
+        {/* <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/> */}
       </View>
     );
   }
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(LeadDetails);
+export default connect()(CommentsContainer);

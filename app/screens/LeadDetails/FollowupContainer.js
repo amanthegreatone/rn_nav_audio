@@ -16,10 +16,10 @@ import {
 import { connect } from 'react-redux';
 // import * as userProfileActions from '../actions/userProfile';
 
-class OpenTasks extends Component {
+class FollowupContainer extends Component {
 
   static navigationOptions = {
-    tabBarLabel: 'Open',
+    tabBarLabel: 'Followup',
   };
 
   render() {
@@ -27,9 +27,12 @@ class OpenTasks extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Open Tasks
+          Followup
+
         </Text>
-        <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/>
+        {/* <Button onPress={() => this.props.navigation.navigate('Followup
+        Details')} title="Followup
+         Details"/> */}
       </View>
     );
   }
@@ -54,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(OpenTasks);
+export default connect()(FollowupContainer);

@@ -14,12 +14,12 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import * as userProfileActions from '../actions/userProfile';
+// import * as userProfileActions from '../actions/userProfile';
 
-class Attachments extends Component {
+class CancelledTasksContainer extends Component {
 
   static navigationOptions = {
-    tabBarLabel: 'Attachments',
+    tabBarLabel: 'Cancelled',
   };
 
   render() {
@@ -27,9 +27,9 @@ class Attachments extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Attachments
+          Cancelled Tasks
         </Text>
-        <Button onPress={() => this.props.navigation.navigate('ImageView')} title="Image"/>
+        <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/>
       </View>
     );
   }
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Attachments);
+export default connect()(CancelledTasksContainer);

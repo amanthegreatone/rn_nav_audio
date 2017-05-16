@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -14,26 +14,23 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import * as userProfileActions from '../../actions/userProfile';
+// import * as userProfileActions from '../actions/userProfile';
 
-class Login extends Component {
+class OpenTasksContainer extends Component {
 
   static navigationOptions = {
-    title: 'Login',
+    tabBarLabel: 'Open',
   };
 
   render() {
     console.log(this.props);
-    const userLogin = {
-      access_token: 'token',
-      tenant: 'tenant'
-    };
     return (
       <View style={styles.container}>
+        {/* <StatusBar barStyle="light-content" translucent /> */}
         <Text style={styles.welcome}>
-          Login
+          Open Tasks
         </Text>
-        <Button onPress={() => this.props.dispatch(userProfileActions.setUserLogin(userLogin))} title="Login"/>
+        <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/>
       </View>
     );
   }
@@ -58,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Login);
+export default connect()(OpenTasksContainer);

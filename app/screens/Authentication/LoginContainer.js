@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -14,22 +14,27 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import * as userProfileActions from '../actions/userProfile';
+import * as userProfileActions from '../../actions/userProfile';
 
-class Comments extends Component {
+class LoginContainer extends Component {
 
   static navigationOptions = {
-    tabBarLabel: 'Comments',
+    title: 'Login',
   };
 
   render() {
     console.log(this.props);
+    const userLogin = {
+      access_token: 'token',
+      tenant: 'tenant'
+    };
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" translucent />
         <Text style={styles.welcome}>
-          Comments
+          Login
         </Text>
-        {/* <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/> */}
+        <Button onPress={() => this.props.dispatch(userProfileActions.setUserLogin(userLogin))} title="Login"/>
       </View>
     );
   }
@@ -54,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Comments);
+export default connect()(LoginContainer);

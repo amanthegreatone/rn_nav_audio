@@ -5,48 +5,47 @@ import { StackNavigator, DrawerNavigator } from 'react-navigation';
 
 
 import Drawer from './Drawer';
-import Dashboard from './Dashboard';
-import UserProfile from './UserProfile';
+import DashboardContainer from './DashboardContainer';
+import UserProfileContainer from './UserProfileContainer';
 import { TaskListTabNavigator } from '../TaskList/routes';
 import { TaskDetailsTabNavigator } from '../TaskDetails/routes';
-import ImageView from '../ImageView';
+import { LeadListTabNavigator } from '../LeadList/routes';
+import { LeadDetailsTabNavigator } from '../LeadDetails/routes';
+import ImageViewContainer from '../ImageViewContainer';
+
+import { baseNavigationOptions } from '../navigationOptions';
 
 const DashboardNavigator = StackNavigator({
-  Dashboard: { screen: Dashboard },
+  Dashboard: {
+    screen: DashboardContainer,
+    navigationOptions: baseNavigationOptions,
+  },
 });
 
 const TasksNavigator = StackNavigator({
   TaskList: { screen: TaskListTabNavigator },
   TaskDetails: { screen: TaskDetailsTabNavigator },
-  ImageView: { screen: ImageView },
+  ImageView: { screen: ImageViewContainer },
 });
 
-// const LeadsNavigator = StackNavigator({
-//   LeadList: { screen: MyLeads },
-//   LeadDetails: { screen: LeadDetails}
-// });
+const LeadsNavigator = StackNavigator({
+  LeadList: { screen: LeadListTabNavigator },
+  LeadDetails: { screen: LeadDetailsTabNavigator },
+  ImageView: { screen: ImageViewContainer },
+});
 
 const UserProfileNavigator = StackNavigator({
-  UserProfile: { screen: UserProfile },
+  UserProfile: {
+    screen: UserProfileContainer,
+    navigationOptions: baseNavigationOptions,
+  },
 });
 
 const drawerStackRoutes = {
-  Dashboard: {
-    screen: DashboardNavigator,
-    // name: 'Dashboard'
-  },
-  Tasks: {
-    screen: TasksNavigator,
-    // name: 'MyTasks'
-  },
-  // Leads: {
-  //   screen: LeadsNavigator,
-  //   // name: 'MyLeads'
-  // },
-  UserProfile: {
-    screen: UserProfileNavigator,
-    // name: 'UserProfile'
-  },
+  Dashboard: { screen: DashboardNavigator },
+  Tasks: { screen: TasksNavigator },
+  Leads: { screen: LeadsNavigator },
+  UserProfile: { screen: UserProfileNavigator },
 };
 
 const drawerStackOptions = {
@@ -56,8 +55,8 @@ const drawerStackOptions = {
   contentComponent: (props) => <Drawer {...props} />,
   contentOptions: {
     activeTintColor: 'white',
-    inactiveTintColor: 'grey',
-    activeBackgroundColor: 'purple',
+    inactiveTintColor: 'black',
+    activeBackgroundColor: '#f54f53',
     inactiveBackgroundColor: 'transparent'
   }
 };

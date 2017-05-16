@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -14,20 +14,21 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-// import * as userProfileActions from '../actions/userProfile';
+import * as userProfileActions from '../actions/userProfile';
 
-class Task extends Component {
+class ImageView extends Component {
 
   static navigationOptions = {
-    tabBarLabel: 'Task',
+    tabBarLabel: 'ImageView',
   };
 
   render() {
     console.log(this.props);
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" translucent />
         <Text style={styles.welcome}>
-          Task
+          Image View
         </Text>
         {/* <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/> */}
       </View>
@@ -54,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Task);
+export default connect()(ImageView);
