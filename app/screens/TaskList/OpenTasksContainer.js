@@ -14,8 +14,10 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-// import * as userProfileActions from '../actions/userProfile';
 
+import { connectAlert } from '../../components';
+
+// @connectAlert
 class OpenTasksContainer extends Component {
 
   static navigationOptions = {
@@ -31,6 +33,7 @@ class OpenTasksContainer extends Component {
           Open Tasks
         </Text>
         <Button onPress={() => this.props.navigation.navigate('TaskDetails')} title="Task Details"/>
+        <Button onPress={() => this.props.alertWithType('warn', 'Hey!', 'Alerting peopleis useful.')} title="alert" />
       </View>
     );
   }
@@ -55,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(OpenTasksContainer);
+export default connect()(connectAlert(OpenTasksContainer));

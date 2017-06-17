@@ -12,20 +12,24 @@ import store from './Store';
 
 import AppContainer from './screens/AppContainer';
 
+import { AlertProvider } from './components';
+
 export default class App extends Component {
-  componentDidMount(){
+  componentDidMount() {
     console.log('App componentDidMount');
   }
 
-  componentWillUnMount(){
-    console.log('App componentWillUnMount');
+  componentWillUnmount() {
+    console.log('App componentWillUnmount');
   }
 
   render() {
     console.log(this.props);
     return (
       <Provider store={store}>
-        <AppContainer />
+        <AlertProvider>
+          <AppContainer />
+        </AlertProvider>
       </Provider>
     );
   }
